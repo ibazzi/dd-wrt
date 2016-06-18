@@ -164,7 +164,7 @@ RESOLVFILE
 #endif
 #define HAVE_SCRIPT
 #define HAVE_AUTH
-//#define HAVE_IPSET 
+#define HAVE_IPSET 
 #define HAVE_LOOP
 
 /* Build options which require external libraries.
