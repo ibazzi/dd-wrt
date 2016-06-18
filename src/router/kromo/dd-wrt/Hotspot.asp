@@ -20,8 +20,7 @@ function user_remove_submit(F) {
 	F.submit();
 }
 
-function to_submit(F) {
-	<% show_iradius_check(); %>
+function to_submit(F) {<% show_iradius_check(); %>
 	F.change_action.value = "";
 	F.submit_type.value = "";
 	F.save_button.value = sbutton.saving;
@@ -30,8 +29,7 @@ function to_submit(F) {
 	}
 	apply(F);
 }
-function to_apply(F) {
-	<% show_iradius_check(); %>
+function to_apply(F) {<% show_iradius_check(); %>
 	F.change_action.value = "";
 	F.submit_type.value = "";
 	F.save_button.value = sbutton.saving;

@@ -4,8 +4,7 @@
 
 var update;
 
-addEvent(window, "load", function() {
-	<% show_status("onload");%>
+addEvent(window, "load", function() {<% show_status("onload");%>
 	
 	update = new StatusUpdate("Status_SputnikAPD.live.asp", <% nvg("refresh_time"); %>);
 	update.start();

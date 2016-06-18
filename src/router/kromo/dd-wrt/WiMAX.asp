@@ -13,8 +13,7 @@ function to_apply(F) {
 
 var update;
 
-addEvent(window, "load", function() {
-	<% list_mac_layers(); %>
+addEvent(window, "load", function() {<% list_mac_layers(); %>
 	
 	update = new StatusbarUpdate();
 	update.start();

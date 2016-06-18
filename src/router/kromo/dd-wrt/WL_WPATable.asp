@@ -268,9 +268,7 @@ function enable_idtls(ifname) {
 
 var update;
 
-addEvent(window, "load", function() {
-
-	<% init_80211x_layers(); %>
+addEvent(window, "load", function() {<% init_80211x_layers(); %>
 	
 	var F = document.forms[0];
 	if(F.security_mode && F.wl_wep_bit) {

@@ -79,10 +79,10 @@ addEvent(window, "unload", function() {
 						<div><h2><% tran("share.help"); %></h2></div>
 						<dl>
 							<dt class="term"><% tran("management.ipv6_srv"); %></dt>
-							<dd class="definition"><% tran("hipv6.right2"); %></dd>
+							<dd class="definition"></dd>
 						</dl>
 						<br />
-						<a href="javascript:openHelpWindow<% ifdef("EXTHELP","Ext"); %>('HIPV6.asp')"><% tran("share.more"); %></a>
+						<a href="javascript:openHelpWindow<% ifdef("EXTHELP","Ext"); %>('IPV6.asp')"><% tran("share.more"); %></a>
 					</div>
 				</div>
 				<div id="floatKiller"></div>
