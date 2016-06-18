@@ -2150,7 +2150,7 @@ static void do_syslog(struct mime_handler *handler, char *url, webs_t stream, ch
 
 	websWrite(stream,
 		  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-		  "<html>\n" "<head>\n" "<meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset=%s\" />\n", live_translate("lang_charset.set"));
+		  "<html>\n" "<head>\n" "<meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset=UTF-8\" />\n");
 	websWrite(stream,
 		  "<style type=\"text/css\">\n body { font: 9px Tahoma, Arial, sans-serif; font-size: small; color: #666; } \n fieldset { border: 1px solid #333; border-radius: 4px; border-width: 1px;}\n</style>\n</head>\n");
 	websWrite(stream, "<body>\n<fieldset><legend>System Log</legend>");
@@ -2272,7 +2272,7 @@ static void do_ttgraph(struct mime_handler *handler, char *url, webs_t stream, c
 
 	websWrite(stream,
 		  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-		  "<html>\n" "<head>\n" "<meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset=%s\" />\n", live_translate("lang_charset.set"));
+		  "<html>\n" "<head>\n" "<meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset=UTF-8\" />\n");
 
 	websWrite(stream, "<title>dd-wrt traffic graph</title>\n"
 		  "<script type=\"text/javascript\">\n"
@@ -2280,7 +2280,7 @@ static void do_ttgraph(struct mime_handler *handler, char *url, webs_t stream, c
 		  "function Show(label) {\n"
 		  "document.getElementById(\"label\").innerHTML = label;\n" "}\n" "//]]>\n" "</script>\n" "<style type=\"text/css\">\n\n" "#t-graph {position: relative; width: %upx; height: 300px;\n", days * COL_WIDTH);
 	websWrite(stream,
-		  "  margin: 1.1em 0 3.5em; padding: 0;\n"
+		  "  padding: 0;\n"
 		  "  border: 1px solid gray; list-style: none;\n"
 		  "  font: 9px Tahoma, Arial, sans-serif; color: #666;}\n" "#t-graph ul {margin: 0; padding: 20; list-style: none;}\n" "#t-graph li {position: absolute; bottom: 0; width: %dpx; z-index: 2;\n", COL_WIDTH);
 	websWrite(stream,
