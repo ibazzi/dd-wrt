@@ -12,7 +12,7 @@ installwebfiles:
 	install -m 644 $(wildcard *.asp) $(wildcard *.svg) $(wildcard *.css) $(wildcard *.jpg) $(wildcard *.gif) $(wildcard *.js) $(wildcard *.htm) $(wildcard *.ico) $(wildcard *.html) $(INSTALLDIR)/www
 
 	cp -a images $(INSTALLDIR)/www
-	cp -a style $(INSTALLDIR)/www
+	#cp -a style $(INSTALLDIR)/www
 	
 ifeq ($(CONFIG_DIST),"micro")
 	rm -f $(INSTALLDIR)/www/images/favicon.ico
@@ -107,7 +107,7 @@ ifeq ($(CONFIG_3COM),y)
 	cp 3com/images/* $(INSTALLDIR)/www/images
 endif
 
-ifeq ($(CONFIG_BUFFALO),y)
+ifeq ($(CONFIG_BUFFALO_STYLE),y)
 ifneq ($(CONFIG_SPOTPASS),y)
 	
 	mkdir $(INSTALLDIR)/www/style/buffalo
@@ -909,7 +909,7 @@ ifneq ($(CONFIG_WPS),y)
 	rm -f $(INSTALLDIR)/www/AOSS.asp
 endif
 endif
-ifneq ($(CONFIG_BUFFALO),y)
+ifneq ($(CONFIG_BUFFALO_STYLE),y)
 	rm -f $(INSTALLDIR)/www/SetupAssistant.asp
 	rm -f $(INSTALLDIR)/www/sas_*.asp
 	rm -Rf $(INSTALLDIR)/www/intatstart
@@ -1087,7 +1087,7 @@ ifneq ($(NO_PROCESSLANGFILES),y)
 PROCESSLANGFILES:= processlangfiles
 endif
 
-install: installwebfiles stripfiles $(PROCESSLANGFILES) optimizefiles removeobsolete makewww removepwc cleanup
+install: installwebfiles stripfiles $(PROCESSLANGFILES) removeobsolete makewww removepwc cleanup
 
 
 postinstall: installwebfiles removeobsolete removepwc cleanup
