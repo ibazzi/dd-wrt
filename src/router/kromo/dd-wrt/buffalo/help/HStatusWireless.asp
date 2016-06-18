@@ -1,0 +1,52 @@
+<% do_hpagehead("status_wireless.titl"); %>
+<body>
+{n}"header">
+{e}"logo"> </div>
+{e}"navig">{j}index.asp">Index</a> | {j}javascript:self.close();"><% tran("sbutton.clos"); %></a></div>
+</div>
+{n}"content">
+<h2><% tran("status_wireless.h2"); %></h2>
+<dl>
+<!--dd>This status screen displays the router's wireless status and configuration. All information is read-only.</dd-->
+<% tran("hstatus_wireless.page1"); %>
+
+<dt><% tran("share.mac"); %></dt>
+<!--dd>The MAC Address of the wireless interface is displayed here.</dd-->
+<% tran("hstatus_wireless.page2"); %>
+
+<dt><% tran("share.mode"); %></dt>
+<!--dd>The Mode of the wireless network is displayed here.</dd-->
+<% tran("hstatus_wireless.page3"); %>
+
+<dt><% tran("share.ssid"); %></dt>
+<!--dd>The SSID of the wireless network is displayed here.</dd-->
+<% tran("hstatus_wireless.page4"); %>
+
+<dt><% tran("share.channel"); %></dt>
+<!--dd>The channel of the wireless network is displayed here.</dd-->
+<% tran("hstatus_wireless.page5"); %>
+
+<dt><% tran("wl_basic.TXpower"); %></dt>
+<!--dd>The transfer power of the wireless device is displayed here.</dd-->
+<% tran("hstatus_wireless.page6"); %>
+
+<dt><% tran("share.rates"); %></dt>
+<!--dd>The current wireless transfer rate is displayed here.</dd-->
+<% tran("hstatus_wireless.page7"); %>
+
+<dt><% tran("share.encrypt"); %></dt>
+<!--dd>The status of the encryption is displayed here.</dd>
+
+<dd>Click the <i>Survey</i> button to show all wireless networks in your neighbourhood reachable by your router.</dd-->
+<% tran("hstatus_wireless.page8"); %>
+</dl>
+</div>
+{e}"also">
+<h4><% tran("share.seealso"); %></h4>
+<ul>
+<li>{j}HStatus.asp">Router Status</a></li>
+<li>{j}HStatusLan.asp">LAN Status</a></li>
+</ul>
+</div>
+</body>
+</html>
