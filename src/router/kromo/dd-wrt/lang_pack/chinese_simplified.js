@@ -318,7 +318,8 @@ bmenu.setupddns="动态DNS（DDNS）";
 bmenu.setupmacclone="MAC地址克隆";
 bmenu.setuprouting="高级路由";
 bmenu.setupvlan="VLANs";
-bmenu.setupeop="EoIP 通道";
+bmenu.setupeop="EoIP隧道";
+bmenu.setupgre="GRE隧道";
 bmenu.networking="网络";
 bmenu.wireless="无线";
 bmenu.wirelessBasic="基本设置";
@@ -1098,18 +1099,33 @@ service.hmilkfish_right24="尚未实现 - 留空";
 service.hmilkfish_right26="尚未实现 - 留空";
 //service.hmilkfish_=
 
-eoip.titl="EoIP 通道";
-eoip.tunnel="通道";
+eoip.titl="EoIP 隧道";
+eoip.tunnel="隧道";
 eoip.legend="Ethernet Over IP Tunneling";
-eoip.srv="EoIP 通道";
+eoip.srv="EoIP 隧道";
 eoip.remoteIP="远程IP地址";
-eoip.tunnelID="通道ID";
+eoip.tunnelID="隧道ID";
 eoip.comp="压缩";
 eoip.passtos="TOS穿透";
 eoip.frag="片段";
 eoip.mssfix="mssfix";
 eoip.shaper="shaper";
 eoip.bridging="桥接中";
+
+// GRE.asp
+
+gre.title="GRE 隧道";
+gre.h2="GRE 隧道"
+gre.legend="GRE支持";
+gre.srv="GRE";
+gre.tun_ipaddr="隧道IP地址";
+gre.tun_netmask="隧道子网掩码";
+gre.tun_key="隧道 Key";
+gre.tun_mtu="隧道 MTU";
+gre.opennhrp_custom="自定义 OpenNHRP";
+gre.opennhrp_conf="OpenNHRP 配置";
+gre.opennhrp_protocol_addr="OpenNHRP 协议地址";
+gre.opennhrp_nbma_addr="OpenNHRP NBMA地址";
 
 sipath.titl="SiPath总览";
 sipath.phone_titl="电话本";

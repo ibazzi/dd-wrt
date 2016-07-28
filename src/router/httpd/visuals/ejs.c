@@ -1564,7 +1564,7 @@ void ej_do_menu(webs_t wp, int argc, char_t ** argv)
 #endif
 
 	static char menu_t[8][13][32] = {
-		{"index.asp", "IPV6.asp", "DDNS.asp", "WanMAC.asp", "Routing.asp", "Vlan.asp", "Networking.asp", "eop-tunnel.asp", "", "", "", ""},	// 
+		{"index.asp", "IPV6.asp", "DDNS.asp", "WanMAC.asp", "Routing.asp", "Vlan.asp", "Networking.asp", "eop-tunnel.asp", "GRE.asp", "", "", ""},	// 
 		{"Wireless_Basic.asp", "SuperChannel.asp", "WiMAX.asp", "Wireless_radauth.asp", "WL_WPATable.asp", "AOSS.asp", "Wireless_MAC.asp", "Wireless_Advanced.asp", "Wireless_WDS.asp", "", "", ""},	//
 		{"Services.asp", "FreeRadius.asp", "PPPoE_Server.asp", "PPTP.asp", "USB.asp", "NAS.asp", "Hotspot.asp", "Nintendo.asp", "Milkfish.asp", "Privoxy.asp", "Lighttpd.asp", ""},	//
 		{"Firewall.asp", "VPN.asp", "", "", "", "", "", "", "", "", "", ""},	//
@@ -1577,7 +1577,7 @@ void ej_do_menu(webs_t wp, int argc, char_t ** argv)
 	 * real name is bmenu.menuname[i][j] 
 	 */
 	static char menuname_t[8][14][32] = {
-		{"setup", "setupbasic", "setupipv6", "setupddns", "setupmacclone", "setuprouting", "setupvlan", "networking", "setupeop", "", "", "", ""},	//
+		{"setup", "setupbasic", "setupipv6", "setupddns", "setupmacclone", "setuprouting", "setupvlan", "networking", "setupeop", "setupgre", "", "", ""},	//
 		{"wireless", "wirelessBasic", "wirelessSuperchannel", "wimax", "wirelessRadius", "wirelessSecurity",	//
 #if defined(HAVE_AOSS) && defined(HAVE_WPS)
 		 "wirelessAossWPS",
@@ -1849,6 +1849,10 @@ void ej_do_menu(webs_t wp, int argc, char_t ** argv)
 #endif
 #ifndef HAVE_EOP_TUNNEL
 				if (!strcmp(menu[i][j], "eop-tunnel.asp"))
+					j++;
+#endif
+#ifndef HAVE_GRE_TUNNEL
+				if (!strcmp(menu[i][j], "GRE.asp"))
 					j++;
 #endif
 #ifndef HAVE_VLANTAGGING

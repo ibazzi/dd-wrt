@@ -403,6 +403,7 @@ bmenu.setupmacclone="MAC Address Clone";
 bmenu.setuprouting="Advanced Routing";
 bmenu.setupvlan="VLANs";
 bmenu.setupeop="EoIP Tunnel";
+bmenu.setupgre="GRE Tunnel";
 bmenu.networking="Networking";
 
 bmenu.wireless="Wireless";
@@ -1943,6 +1944,21 @@ eoip.frag="fragment";
 eoip.mssfix="mssfix";
 eoip.shaper="shaper";
 eoip.bridging="Bridging";
+
+// GRE.asp
+var gre=new Object();
+gre.title="GRE Tunnel";
+gre.h2="GRE Tunnel"
+gre.legend="GRE Support";
+gre.srv="GRE";
+gre.tun_ipaddr="Tunnel IP Address";
+gre.tun_netmask="Tunnel Netmask";
+gre.tun_key="Tunnel Key";
+gre.tun_mtu="Tunnel MTU";
+gre.opennhrp_custom="OpenNHRP Custom";
+gre.opennhrp_conf="OpenNHRP Config";
+gre.opennhrp_protocol_addr="OpenNHRP Protocol Address";
+gre.opennhrp_nbma_addr="OpenNHRP NBMA Address";
 
 // help page
 var heoip=new Object();

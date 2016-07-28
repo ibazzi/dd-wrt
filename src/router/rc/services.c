@@ -1306,6 +1306,14 @@ static void handle_eop(void)
 
 }
 #endif
+#ifdef HAVE_GRE_TUNNEL
+static void handle_gre(void)
+{
+	FORK(eval("/etc/config/gre.startup"));
+	FORK(eval("/etc/config/gre.firewall"));
+
+}
+#endif
 static struct SERVICES services_def[] = {
 	{"dhcp", handle_dhcpd},
 	{"index", handle_index},
@@ -1367,6 +1375,9 @@ static struct SERVICES services_def[] = {
 #endif
 #ifdef HAVE_EOP_TUNNEL
 	{"eop", handle_eop},
+#endif
+#ifdef HAVE_GRE_TUNNEL
+	{"gre", handle_gre},
 #endif
 #ifdef HAVE_SPOTPASS
 	{"spotpass", handle_spotpass},

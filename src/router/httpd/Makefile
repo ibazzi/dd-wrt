@@ -754,6 +754,9 @@ endif
 ifeq ($(CONFIG_EOP_TUNNEL),y)
 CFLAGS += -DHAVE_EOP_TUNNEL
 endif
+ifeq ($(CONFIG_GRE_TUNNEL),y)
+CFLAGS += -DHAVE_GRE_TUNNEL
+endif
 ifeq ($(CONFIG_CHILLILOCAL),y)
 CFLAGS += -DHAVE_CHILLILOCAL
 endif
@@ -1343,7 +1346,7 @@ httpd: cgi.o ej.o httpd.o base.o \
 #	./write_web www 
 	$(CC) -o $@ $^ $(CFLAGS) $(SSLCFLAGS) $(SSLLDFLAGS) $(LDFLAGS)
 #	ar arc -o $@ $^
-	rm -f ../rc/rc
+#	rm -f ../rc/rc
 
 validate.so: validators.o webs.o wepkey.o setupassist.o aoss_save.o wps.o $(WEBSOBJS) $(REGOBJS)
 	$(CC) --shared -o $@ $^ $(CFLAGS) -DVALIDSOURCE -DGETREGCODE $(LDFLAGS)

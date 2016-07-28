@@ -1,0 +1,50 @@
+#!/bin/sh
+
+nv=/usr/sbin/nvram
+tname=tun0
+tkey=$($nv get gre_tun_key)
+tipaddr=$($nv get gre_tun_ipaddr)
+tnetmask=$($nv get gre_tun_netmask)
+tmtu=$($nv get gre_tun_mtu)
+opennhrp_pid=/var/run/opennhrp.pid
+opennhrp_conf=/tmp/opennhrp.conf
+opennhrp_script=/etc/opennhrp-script
+
+/bin/mkdir -p /tmp/gre
+cd /tmp/gre
+
+if test -e "${tname}.pid" 
+then
+    if test -e "$opennhrp_pid"
+    then
+        kill -9 `cat $opennhrp_pid`
+    fi
+    ip tunnel del $tname
+    rm -f ${tname}.pid
+    rm -f $opennhrp_conf
+fi
+if [ `$nv get gre_tun_enable` -eq 1 ]
+then
+    insmod ip_tunnel
+    insmod ip_gre
+    ip tunnel add $tname mode gre key $tkey ttl 64 csum
+    ip link set dev $tname up
+    ip link set dev $tname multicast on
+    ip link set dev $tname mtu $tmtu
+    ip addr add $tipaddr/$(getmask $tnetmask) dev $tname 2>&1 > /dev/null
+    echo enable > $tname.pid
+    if [ `$nv get gre_opennhrp_custom` -eq 1 ]
+    then
+        echo $($nv get gre_opennhrp_conf) > $opennhrp_conf
+	echo "" >> $opennhrp_conf
+    else
+        echo "interface $tname" > $opennhrp_conf
+        echo "  map `$nv get gre_opennhrp_protocol_addr`/`getmask $tnetmask` `$nv get gre_opennhrp_nbma_addr` register" >> $opennhrp_conf
+        echo "  shortcut" >> $opennhrp_conf
+        echo "  redirect" >> $opennhrp_conf
+        echo "  non-caching" >> $opennhrp_conf
+        echo "  multicast nhs" >> $opennhrp_conf
+    fi
+
+    opennhrp -d -c $opennhrp_conf -s $opennhrp_script
+fi

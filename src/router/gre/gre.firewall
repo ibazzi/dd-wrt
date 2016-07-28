@@ -1,0 +1,10 @@
+#!/bin/sh
+
+nv=/usr/sbin/nvram
+ipt=/usr/sbin/iptables
+tname=tun0
+
+if [ `$nv get gre_tun_enable` -eq 1 ]
+then
+    $ipt -t nat -A POSTROUTING -o $tname -j MASQUERADE 2>&1 > /dev/null
+fi

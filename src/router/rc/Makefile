@@ -518,6 +518,9 @@ endif
 ifeq ($(CONFIG_EOP_TUNNEL),y)
 CFLAGS += -DHAVE_EOP_TUNNEL
 endif
+ifeq ($(CONFIG_GRE_TUNNEL),y)
+CFLAGS += -DHAVE_GRE_TUNNEL
+endif
 ifeq ($(CONFIG_DDLAN),y)
 CFLAGS += -DHAVE_DDLAN
 endif

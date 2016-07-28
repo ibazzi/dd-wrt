@@ -1,0 +1,52 @@
+<h2><% tran("gre.h2"); %></h2>
+<fieldset>
+	<legend><% tran("gre.legend"); %></legend>
+	<div class="setting">
+		<div class="label"><% tran("gre.srv"); %></div>
+		<input class="spaceradio" type="radio" value="1" name="gre_tun_enable" <% nvram_checked("gre_tun_enable","1"); %> onclick="show_layer_ext(this, 'idgre', true)" /><% tran("share.enable"); %>&nbsp;
+		<input class="spaceradio" type="radio" value="0" name="gre_tun_enable" <% nvram_checked("gre_tun_enable","0"); %> onclick="show_layer_ext(this, 'idgre', false)" /><% tran("share.disable"); %>
+	</div>
+	<div id="idgre">
+		<div class="setting">
+			<div class="label"><% tran("gre.tun_ipaddr"); %></div>
+			<input size="20" maxlength="15" class="text" name="gre_tun_ipaddr" value="<% nvram_get("gre_tun_ipaddr"); %>" />
+		</div>
+		<div class="setting">
+			<div class="label"><% tran("gre.tun_netmask"); %></div>
+			<input size="20" maxlength="15" class="text" name="gre_tun_netmask" value="<% nvram_get("gre_tun_netmask"); %>" />
+		</div>
+		<div class="setting">
+			<div class="label"><% tran("gre.tun_key"); %></div>
+			<input size="10" maxlength="10" class="text" name="gre_tun_key" value="<% nvram_get("gre_tun_key"); %>" />
+		</div>
+		<div class="setting">
+			<div class="label"><% tran("gre.tun_mtu"); %></div>
+			<input size="4" maxlength="4" type="number" min="1280" max="1500" class="text" name="gre_tun_mtu" value="<% nvram_get("gre_tun_mtu"); %>" />
+		</div>
+		<div class="setting">
+			<div class="label"><% tran("gre.opennhrp_custom"); %></div>
+			<input class="spaceradio" type="radio" value="1" name="gre_opennhrp_custom" <% nvram_checked("gre_opennhrp_custom","1"); %> onclick="show_layer_ext(this, 'idgre_opennhrp_custom', true);show_layer_ext(this, 'idgre_opennhrp_auto', false)" /><% tran("share.enable"); %>&nbsp;
+			<input class="spaceradio" type="radio" value="0" name="gre_opennhrp_custom" <% nvram_checked("gre_opennhrp_custom","0"); %> onclick="show_layer_ext(this, 'idgre_opennhrp_custom', false);show_layer_ext(this, 'idgre_opennhrp_auto', true)" /><% tran("share.disable"); %>
+		</div>
+		<div id="idgre_opennhrp_custom">
+			<div class="label"><% tran("gre.opennhrp_conf"); %></div>
+			<textarea id="gre_opennhrp_conf" name="gre_opennhrp_conf" cols="80" rows="4"></textarea>
+			<script type="text/javascript">
+			//<![CDATA[
+				var gre_opennhrp_conf = fix_cr( '<% nvram_get("gre_opennhrp_conf"); %>' );
+				document.getElementById("gre_opennhrp_conf").value = gre_opennhrp_conf;
+			//]]>
+			</script>
+		</div>
+		<div id="idgre_opennhrp_auto">
+		<div class="setting">
+			<div class="label"><% tran("gre.opennhrp_protocol_addr"); %></div>
+			<input size="20" maxlength="15" class="text" name="gre_opennhrp_protocol_addr" value="<% nvram_get("gre_opennhrp_protocol_addr"); %>" />
+		</div>
+		<div class="setting">
+			<div class="label"><% tran("gre.opennhrp_nbma_addr"); %></div>
+			<input size="50" maxlength="150" class="text" name="gre_opennhrp_nbma_addr" value="<% nvram_get("gre_opennhrp_nbma_addr"); %>" />
+		</div>
+		</div>
+	</div>
+</fieldset><br/>
