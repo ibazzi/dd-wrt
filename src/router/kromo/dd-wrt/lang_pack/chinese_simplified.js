@@ -1122,6 +1122,7 @@ gre.tun_ipaddr="隧道IP地址";
 gre.tun_netmask="隧道子网掩码";
 gre.tun_key="隧道 Key";
 gre.tun_mtu="隧道 MTU";
+gre.tun_upscript="GRE 启动脚本";
 gre.opennhrp_custom="自定义 OpenNHRP";
 gre.opennhrp_conf="OpenNHRP 配置";
 gre.opennhrp_protocol_addr="OpenNHRP 协议地址";

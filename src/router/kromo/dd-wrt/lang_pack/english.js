@@ -1955,6 +1955,7 @@ gre.tun_ipaddr="Tunnel IP Address";
 gre.tun_netmask="Tunnel Netmask";
 gre.tun_key="Tunnel Key";
 gre.tun_mtu="Tunnel MTU";
+gre.tun_upscript="GRE Startup Script";
 gre.opennhrp_custom="OpenNHRP Custom";
 gre.opennhrp_conf="OpenNHRP Config";
 gre.opennhrp_protocol_addr="OpenNHRP Protocol Address";

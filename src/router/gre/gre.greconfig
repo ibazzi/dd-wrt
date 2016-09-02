@@ -39,14 +39,22 @@
 			</script>
 		</div>
 		<div id="idgre_opennhrp_auto">
-		<div class="setting">
-			<div class="label"><% tran("gre.opennhrp_protocol_addr"); %></div>
-			<input size="20" maxlength="15" class="text" name="gre_opennhrp_protocol_addr" value="<% nvram_get("gre_opennhrp_protocol_addr"); %>" />
+			<div class="setting">
+				<div class="label"><% tran("gre.opennhrp_protocol_addr"); %></div>
+				<input size="20" maxlength="15" class="text" name="gre_opennhrp_protocol_addr" value="<% nvram_get("gre_opennhrp_protocol_addr"); %>" />
+			</div>
+			<div class="setting">
+				<div class="label"><% tran("gre.opennhrp_nbma_addr"); %></div>
+				<input size="50" maxlength="150" class="text" name="gre_opennhrp_nbma_addr" value="<% nvram_get("gre_opennhrp_nbma_addr"); %>" />
+			</div>
 		</div>
-		<div class="setting">
-			<div class="label"><% tran("gre.opennhrp_nbma_addr"); %></div>
-			<input size="50" maxlength="150" class="text" name="gre_opennhrp_nbma_addr" value="<% nvram_get("gre_opennhrp_nbma_addr"); %>" />
-		</div>
-		</div>
+		<div class="label"><% tran("gre.tun_upscript"); %></div>
+		<textarea id="gre_tun_upscript" name="gre_tun_upscript" cols="80" rows="6"></textarea>
+		<script type="text/javascript">
+		//<![CDATA[
+			var gre_tun_upscript = fix_cr( '<% nvram_get("gre_tun_upscript"); %>' );
+			document.getElementById("gre_tun_upscript").value = gre_tun_upscript;
+		//]]>
+		</script>
 	</div>
 </fieldset><br/>

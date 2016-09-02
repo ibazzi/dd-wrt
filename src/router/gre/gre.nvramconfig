@@ -3,6 +3,7 @@
 "gre_tun_netmask"  "netmask"  "NULL" "TRUE" "0"
 "gre_tun_key"  "tun key"  "NULL" "TRUE" "0"
 "gre_tun_mtu"  "tun mtu"  "NULL" "TRUE" "0"
+"gre_tun_upscript"  "tun up script"  "NULL" "TRUE" "0"
 "gre_opennhrp_custom" "enable custom" "CHOICE"  "2" "0" "1"  "FALSE" "0"
 "gre_opennhrp_conf" "custom config" "NULL" "TRUE" "0"
 "gre_opennhrp_protocol_addr" "peer address"  "NULL" "TRUE" "0"  
