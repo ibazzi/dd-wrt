@@ -1329,7 +1329,7 @@ static int __init robo_init(void)
 			.interface = device,
 			.cpuport = 5,
 			.ports = 6,
-			.vlans = 16,
+			.vlans = 128,
 			.driver_handlers = cfg,
 			.port_handlers = port,
 			.vlan_handlers = vlan,
