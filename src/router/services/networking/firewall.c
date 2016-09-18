@@ -668,7 +668,7 @@ static void nat_prerouting(void)
 		/* do not filter access to the webif from lan */
 		save2file("-A PREROUTING -p tcp -s %s/%s -d %s --dport %d -j ACCEPT\n", lan_ip, nvram_safe_get("lan_netmask"), lan_ip, web_lanport);
 		/* go through proxy */
-		save2file("-A PREROUTING -p tcp -d ! %s --dport 80 -j DNAT --to %s:8118\n", wanaddr, lan_ip);
+		save2file("-A PREROUTING -p tcp -d !%s --dport 80 -j DNAT --to %s:8118\n", wanaddr, lan_ip);
 	}
 #endif
 #ifdef HAVE_TOR
@@ -2413,7 +2413,7 @@ static void mangle_table(void)
 	if (wanactive() && (nvram_matchi("block_loopback", 0) || nvram_match("filter", "off"))) {
 		insmod("ipt_mark xt_mark ipt_CONNMARK xt_CONNMARK xt_connmark");
 
-		save2file("-A PREROUTING -i ! %s -d %s -j MARK --set-mark %s\n", get_wan_face(), get_wan_ipaddr(), get_NFServiceMark("FORWARD", 1));
+		save2file("-A PREROUTING -i !%s -d %s -j MARK --set-mark %s\n", get_wan_face(), get_wan_ipaddr(), get_NFServiceMark("FORWARD", 1));
 
 		save2file("-A PREROUTING -j CONNMARK --save-mark\n");
 	}
