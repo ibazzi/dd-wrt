@@ -19,7 +19,6 @@ aircrack-ng-opt-prof_use:
 
 install:
 	$(MAKE) -C src $(@)
-	$(MAKE) -C scripts $(@)
 	install -m 755 $(SCRIPTS) $(INSTALLDIR)$(sbindir)
 
 uninstall:

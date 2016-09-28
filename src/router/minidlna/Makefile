@@ -194,20 +194,21 @@ clean:
 			     CROSS_COMPILE=$(CROSS_COMPILE) \
 			     HOST_COMPILE=$(HOST_COMPILE) \
 			     MINI_DLNA_PATH=$(MINI_DLNA_PATH))
-	-rm ./lib/libz.a
-	-rm ./lib/libvorbis.a
-	-rm ./lib/libFLAC.a
-	-rm ./lib/libogg.a
-	-rm ./lib/libexif.a
-	-rm ./lib/libavutil.a
-	-rm ./lib/libavdevice.a
-	-rm ./lib/libavformat.a
-	-rm ./lib/libavcodec.a
-	-rm ./lib/libsqlite3.a
-	-rm ./lib/libjpeg.a
-	-rm ./lib/libid3tag.a
-	-rm ./lib/minidlna
+	-rm -f ./lib/libz.a
+	-rm -f ./lib/libvorbis.a
+	-rm -f ./lib/libFLAC.a
+	-rm -f ./lib/libogg.a
+	-rm -f ./lib/libexif.a
+	-rm -f ./lib/libavutil.a
+	-rm -f ./lib/libavdevice.a
+	-rm -f ./lib/libavformat.a
+	-rm -f ./lib/libavcodec.a
+	-rm -f ./lib/libsqlite3.a
+	-rm -f ./lib/libjpeg.a
+	-rm -f ./lib/libid3tag.a
+	-rm -f ./lib/minidlna
 copy: 
+	mkdir -p lib
 	cp ./libvorbis-1.3.3/lib/.libs/libvorbis.a	./lib/libvorbis.a && \
 	cp ./flac-1.2.1/src/libFLAC/.libs/libFLAC.a		./lib/libFLAC.a && \
 	cp ./libexif-0.6.19/libexif/.libs/libexif.a 		./lib/libexif.a  && \

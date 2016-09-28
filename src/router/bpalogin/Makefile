@@ -2,9 +2,9 @@ SBINPATH = /usr/sbin
 ETCPATH = /etc
 INITPATH = /etc/rc.d/init.d
 ifeq ($(CONFIG_MSSID),y)
-CFLAGS = $(COPTS) -Wall -I$(SRCBASE)/include.v24 -I.
+CFLAGS = $(COPTS) -Wall -I$(SRCBASE)/include.v24 -I$(SRCBASE)/include.v24/include -I.
 else
-CFLAGS = $(COPTS) -Wall -I$(SRCBASE)/include.v23 -I.
+CFLAGS = $(COPTS) -Wall -I$(SRCBASE)/include.v24 -I$(SRCBASE)/include.v24/include -I.
 endif
 CFLAGS += -fPIC
 LIBS = -lcrypt -lnvram

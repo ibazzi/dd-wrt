@@ -23,10 +23,10 @@ install: all
 	install macping $(INSTALLDIR)/usr/bin/
 	install mactelnet $(INSTALLDIR)/usr/bin/
 	install -d $(INSTALLDIR)/usr/sbin
-	install -o root mactelnetd $(INSTALLDIR)/usr/sbin/
+	install mactelnetd $(INSTALLDIR)/usr/sbin/
 	install -d $(INSTALLDIR)/etc/config
-	install -m 600 -o root config/mactelnet.webservices $(INSTALLDIR)/etc/config
-	install -m 600 -o root config/mactelnet.nvramconfig $(INSTALLDIR)/etc/config
+	install -m 600 config/mactelnet.webservices $(INSTALLDIR)/etc/config
+	install -m 600 config/mactelnet.nvramconfig $(INSTALLDIR)/etc/config
 
 install-docs:
 	install -d $(DESTDIR)/usr/share/man/man1/

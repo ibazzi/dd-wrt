@@ -1,5 +1,4 @@
 util-linux-configure:
-	make -C util-linux clean
 	cd util-linux && ./configure --host=$(ARCH)-linux-uclibc --prefix=/usr --libdir=/usr/lib CFLAGS="$(COPTS) $(MIPS16_OPT) -DNEED_PRINTF" PKG_CONFIG="/tmp" NCURSES_CFLAGS="-I$(TOP)/ncurses/include" NCURSES_LIBS="-L$(TOP)/ncurses/lib -lncurses" \
 	--disable-rpath \
 	--enable-new-mount	\
@@ -8,7 +7,6 @@ util-linux-configure:
 	--without-python	\
 	--without-udev		\
 	--with-ncurses
-	make -C util-linux
 
 util-linux-clean:
 	make -C util-linux clean
@@ -46,7 +44,7 @@ ifneq ($(CONFIG_ASTERISK),y)
 	rm -f $(INSTALLDIR)/util-linux/lib/libsmartcols.so*
 endif
 
-asterisk-configure: util-linux-configure util-linux-install jansson
+asterisk-configure: util-linux-configure util-linux util-linux-install jansson
 	rm -f asterisk/menuselect.makeopts && \
 	cd asterisk && ./configure --host=$(ARCH)-linux-uclibc \
 	--libdir=/usr/lib \
@@ -143,6 +141,7 @@ asterisk: util-linux util-linux-install jansson
 
 asterisk-install:
 	chmod 700 asterisk/build_tools/install_subst
+	mkdir -p $(TOP)/$(ARCH)-uclibc/tmp/$(ARCHITECTURE)/asterisk/var/lib/asterisk/phoneprov
 	-ASTCFLAGS="$(COPTS) $(MIPS16_OPT) -DLOW_MEMORY -DNEED_PRINTF -fPIC -I$(TOP)/ncurses/include -I$(TOP)/openssl/include -I$(TOP)/minidlna/sqlite-3.6.22" \
 	ASTLDFLAGS="$(COPTS) $(MIPS16_OPT) -DLOW_MEMORY -DNEED_PRINTF -fPIC -L$(TOP)/ncurses/lib -L$(TOP)/openssl -L$(TOP)/minidlna/lib" \
 	$(MAKE) -C asterisk \
@@ -151,7 +150,7 @@ asterisk-install:
 		DEBUG="" \
 		OPTIMIZE="" \
 		DESTDIR=$(TOP)/$(ARCH)-uclibc/tmp/$(ARCHITECTURE)/asterisk \
-		install samples
+		samples install 
 	-ASTCFLAGS="$(COPTS) $(MIPS16_OPT) -DLOW_MEMORY -DNEED_PRINTF -fPIC -I$(TOP)/ncurses/include -I$(TOP)/openssl/include -I$(TOP)/minidlna/sqlite-3.6.22" \
 	ASTLDFLAGS="$(COPTS) $(MIPS16_OPT) -DLOW_MEMORY -DNEED_PRINTF -fPIC -L$(TOP)/ncurses/lib -L$(TOP)/openssl -L$(TOP)/minidlna/lib" \
 	$(MAKE) -C asterisk \

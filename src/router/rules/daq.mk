@@ -1,4 +1,4 @@
-daq-configure: libpcap libdnet-configure libnetfilter_queue-configure libdnet libnetfilter_queue
+daq-configure: libpcap-configure libpcap libdnet-configure libnetfilter_queue-configure libdnet libnetfilter_queue
 	cd daq && autoconf
 	export ac_cv_header_linux_netfilter_h=yes ; \
 	export ac_cv_lib_pcap_pcap_lib_version=yes ; \

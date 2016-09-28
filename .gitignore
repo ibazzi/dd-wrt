@@ -40,5 +40,7 @@ config.sub
 config.cache
 tools/filelist
 opt/tools/trx
-src/router/arm
-Makefile
+src/router/arm-uclibc
+busybox
+kernel_headers
+_staging

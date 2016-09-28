@@ -355,9 +355,7 @@ else # Darwin
 	$(INSTALL) -m 755 $(ASTPJ_LIB) "$(DESTDIR)$(ASTLIBDIR)/"
 endif
 endif
-ifneq ($(LDCONFIG),)
-	$(LDCONFIG) $(LDCONFIG_FLAGS) "$(DESTDIR)$(ASTLIBDIR)/"
-endif
+
 	$(LN) -sf asterisk "$(DESTDIR)$(ASTSBINDIR)/rasterisk"
 
 binuninstall:
